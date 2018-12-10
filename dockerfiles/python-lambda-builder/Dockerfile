@@ -1,6 +1,6 @@
 FROM amazonlinux:1
 
-RUN yum install -y python36 python36-pip make gcc python36-devel
+RUN yum install -y python37 python37-pip make gcc python36-devel
 RUN python3 -m pip install awscli
 
 ARG GIT_REVISION=unknown
