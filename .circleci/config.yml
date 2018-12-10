@@ -1,15 +1,5 @@
 version: 2
 jobs:
-  pre_build:
-    machine: true
-    steps:
-      - checkout
-      - run:
-          name: pre_build
-          command: |
-            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-            make build
-            make push
   release:
     machine: true
     steps:
@@ -24,10 +14,7 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - pre_build
       - release:
-          requires:
-            - pre_build
           filters:
             branches:
               only: master
