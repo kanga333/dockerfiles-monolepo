@@ -7,7 +7,7 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-TARGETS=`find dockerfiles -type d -maxdepth 1 -mindepth 1`
+TARGETS=`find dockerfiles -maxdepth 1 -mindepth 1 -type d`
 for TARGET in $TARGETS
 do
     HAS_DIFF=`git diff --diff-filter=ACMR --name-only HEAD\^ HEAD --relative=$TARGET | head -1`
