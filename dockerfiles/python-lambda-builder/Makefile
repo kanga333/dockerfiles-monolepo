@@ -1,7 +1,7 @@
 NAME         := python-lambda-builder
 REVISION     := $(shell git rev-parse --short HEAD)
 ORIGIN       := $(shell git remote get-url origin | sed -e 's/^.*@//g')
-RELEASE_TAGS := 0.0.1 $(REVISION)
+RELEASE_TAGS := 1.0.0 $(REVISION)
 TAGS         := $(REVISION)
 REGISTRY     := index.docker.io
 USER         := kanga333
