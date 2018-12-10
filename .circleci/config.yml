@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  pre-build:
     machine: true
     steps:
       - checkout
@@ -10,3 +10,15 @@ jobs:
             echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
             make build
             make push
+  release:
+    machine: true
+    branches:
+      only:
+        master
+    steps:
+      - checkout
+      - run:
+          name: release
+          command: |
+            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+            make release
